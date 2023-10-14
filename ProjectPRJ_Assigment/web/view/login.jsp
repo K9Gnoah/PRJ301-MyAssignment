@@ -15,5 +15,6 @@
         <div id="bg">
             <img src="image/login.jpg" alt="">
         </div>
+        <div class="container">
     </body>
 </html>
