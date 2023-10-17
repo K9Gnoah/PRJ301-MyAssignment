@@ -9,11 +9,12 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <link rel="stylesheet" href="css/homepage.css"/>
         <title>FPT University</title>
     </head>
     <body>
         <div id="bg">
-            <img src="image/login.jpg" alt="">
+            <img src="image/login.jpg" alt="fpt">
         </div>
         <div class="container" >
             <div class="form-container sign-in-container">
