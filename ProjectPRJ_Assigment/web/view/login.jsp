@@ -15,6 +15,14 @@
         <div id="bg">
             <img src="image/login.jpg" alt="">
         </div>
-        <div class="container">
+        <div class="container" >
+            <div class="form-container sign-in-container">
+                <form action="LoginServlet" method="POST">
+                    <h1>Sign in</h1>                                
+                    <input type="text" name="email" placeholder="Email" required=""/><br />
+                    <input type="password" name="password" placeholder="Password" required=""/><br />                    
+                    <button>Sign In</button>
+                </form>
+            </div>
     </body>
 </html>
