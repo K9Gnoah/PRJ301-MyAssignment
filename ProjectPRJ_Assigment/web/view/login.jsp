@@ -13,8 +13,7 @@
         <title>FPT University</title>
     </head>
     <body>
-        <div id="bg">
-            <img src="image/login.jpg" alt="fpt">
+        <div class="bg" style="background-image: url(image/login.jpg);">         
         </div>
         <div class="container" >
             <div class="form-container sign-in-container">
