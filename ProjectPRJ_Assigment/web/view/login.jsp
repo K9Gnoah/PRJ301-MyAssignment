@@ -15,14 +15,26 @@
     <body>
         <div class="bg" style="background-image: url(image/login.jpg);">         
         </div>
-        <div class="container" >
-            <div class="form-container sign-in-container">
-                <form action="LoginServlet" method="POST">
-                    <h1>Sign in</h1>                                
-                    <input type="text" name="email" placeholder="Email" required=""/><br />
-                    <input type="password" name="password" placeholder="Password" required=""/><br />                    
-                    <button>Sign In</button>
-                </form>
+        <div class="container">
+            <div class="left-side">
+                <div class="form-container sign-in-container">
+                    <form action="LoginServlet" method="POST">
+                        <h1>Sign in</h1>                                
+                        <input type="text" name="email" placeholder="Email" required=""/><br />
+                        <input type="password" name="password" placeholder="Password" required=""/><br />                    
+                        <button>Sign In</button>
+                    </form>
+                </div>
             </div>
+            <div class="right-side">
+                <div class="overlay-container">                
+                    <div class="overlay-right">
+                        <h1>Hello, Friend!</h1>
+                        <p>Sign up if you don't have an account already</p>
+                        <button class="right">Sign Up</button>
+                    </div>
+                </div>
+            </div>
+        </div>
     </body>
 </html>
