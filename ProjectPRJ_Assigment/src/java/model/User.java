@@ -8,7 +8,7 @@ package model;
  *
  * @author THINKPAD
  */
-public class User {
+public class User implements IBaseModel{
     private String username;
     private String password;
     private String displayname;
