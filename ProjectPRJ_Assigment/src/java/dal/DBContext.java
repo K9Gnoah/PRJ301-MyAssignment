@@ -15,7 +15,7 @@ import model.IBaseModel;
  *
  * @author THINKPAD
  */
-public class DBContext <T extends IBaseModel>{
+public abstract class DBContext <T extends IBaseModel>{
     protected Connection connection;
     public DBContext()
     {
@@ -32,4 +32,5 @@ public class DBContext <T extends IBaseModel>{
         }
         
     }
+    public abstract T getUsers (T model);
 }
