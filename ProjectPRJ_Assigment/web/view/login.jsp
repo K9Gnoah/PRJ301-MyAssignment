@@ -20,7 +20,7 @@
                 <div class="form-container sign-in-container">
                     <form action="login" method="POST">
                         <h1>Sign in</h1>                                
-                        <input type="text" name="email" placeholder="Email" required=""/><br />
+                        <input type="text" name="username" placeholder="Email" required=""/><br />
                         <input type="password" name="password" placeholder="Password" required=""/><br />                    
                         <button>Sign In</button>
                     </form>
