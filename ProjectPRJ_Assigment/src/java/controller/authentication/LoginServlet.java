@@ -73,7 +73,15 @@ public class LoginServlet extends HttpServlet {
         User loggedUser = db.getUsers(param);
         if (loggedUser != null) {
             HttpSession session = request.getSession();
-            session.setAttribute("account", loggedUser);                    
+            session.setAttribute("account", loggedUser);  
+            
+            Cookie c_user = new Cookie("user", username);
+            Cookie c_pass = new Cookie("pass", password);
+            c_user.setMaxAge(24*3600);
+            c_pass.setMaxAge(24*3600);
+            response.addCookie(c_user);
+            response.addCookie(c_pass);
+            
             response.getWriter().println("Hello " + loggedUser.getDisplayname());
         } else {
             response.getWriter().println("invalid username or password!");
