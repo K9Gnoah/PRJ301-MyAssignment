@@ -10,7 +10,7 @@ import java.util.ArrayList;
  *
  * @author THINKPAD
  */
-public class Subject {
+public class Subject implements IBaseModel{
     private int id;
     private String name;
     private ArrayList<Group> groups = new ArrayList<>();
