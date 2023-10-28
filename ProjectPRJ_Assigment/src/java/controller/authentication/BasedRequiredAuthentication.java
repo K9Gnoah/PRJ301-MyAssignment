@@ -20,49 +20,34 @@ import model.User;
 public abstract class BasedRequiredAuthentication extends HttpServlet{
     private boolean isAuthenticated(HttpServletRequest request){
         User account = (User) request.getSession().getAttribute("account");
-        if(account != null){
-            return true;
-        }
-        else{
-            String user = null;
-            String pass = null;
-            Cookie[] cookies = request.getCookies();
-            //check if have cookies already
-            if(cookies != null){
-                for(Cookie cooky : cookies){
-                    if(user != null && pass != null){
-                        break;
-                    }
-                    if(cooky.getName().equals("user")){
-                        user =cooky.getValue();
-                    }
-                    if(cooky.getName().equals("pass")){
-                        pass = cooky.getValue();
-                    }
-                }
-            }
-            if(user != null && pass != null){
-                UserDBContext db = new UserDBContext();
-                User param = new User();
-                param.setUsername(user);
-                param.setPassword(pass);
-                account = db.getUsers(param);
-                return account != null;
-            }
-            else{
-                return false;
-            }
-        }
+        //if account ! null return true
+        return account != null;
     }
     
     @Override
-    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        super.doPost(req, resp); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/OverriddenMethodBody
+    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        if(isAuthenticated(request)){
+            //login
+            processPost(request, response);
+        }
+        else {
+            response.getWriter().println("access denied!");
+        }
     }
 
     @Override
-    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        super.doGet(req, resp); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/OverriddenMethodBody
+    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        if(isAuthenticated(request)){
+            //login
+            processGet(request, response);
+        }
+        else {
+            response.getWriter().println("access denied!");
+        }
     }
     
+    protected abstract void processGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException ;
+    
+    
+    protected abstract void processPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException ;
 }
