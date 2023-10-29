@@ -5,18 +5,24 @@
 
 package controller.admin.schedule;
 
+import controller.authentication.BasedRequiredAuthentication;
 import java.io.IOException;
 import java.io.PrintWriter;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import java.sql.Date;
+import java.time.DayOfWeek;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+import java.util.ArrayList;
 
 /**
  *
  * @author THINKPAD
  */
-public class TimeTableController extends HttpServlet {
+public class TimeTableController extends BasedRequiredAuthentication {
    
     /** 
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code> methods.
@@ -27,19 +33,9 @@ public class TimeTableController extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
     throws ServletException, IOException {
-        response.setContentType("text/html;charset=UTF-8");
-        try (PrintWriter out = response.getWriter()) {
-            /* TODO output your page here. You may use following sample code. */
-            out.println("<!DOCTYPE html>");
-            out.println("<html>");
-            out.println("<head>");
-            out.println("<title>Servlet TimeTableController</title>");  
-            out.println("</head>");
-            out.println("<body>");
-            out.println("<h1>Servlet TimeTableController at " + request.getContextPath () + "</h1>");
-            out.println("</body>");
-            out.println("</html>");
-        }
+        response.setContentType("text/html;charset=UTF-8");       
+                
+        
     } 
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
@@ -51,10 +47,27 @@ public class TimeTableController extends HttpServlet {
      * @throws IOException if an I/O error occurs
      */
     @Override
-    protected void doGet(HttpServletRequest request, HttpServletResponse response)
+    protected void processGet(HttpServletRequest request, HttpServletResponse response)
     throws ServletException, IOException {
-        processRequest(request, response);
-    } 
+        //set date 
+        String date_raw = request.getParameter("date");
+        LocalDate date;
+        if(date_raw == null){
+            date = LocalDate.now();
+        }else{
+            DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+            date = LocalDate.parse(date_raw, formatter);
+        }
+        
+        request.setAttribute("date", date);
+        LocalDate monday = date;
+        //check if variable name monday is not monday
+        while(monday.getDayOfWeek() != DayOfWeek.MONDAY){
+            monday = monday.minusDays(1);
+        }
+        //Monday
+        Date sqlMon = Date.valueOf(monday);        
+        } 
 
     /** 
      * Handles the HTTP <code>POST</code> method.
@@ -64,7 +77,7 @@ public class TimeTableController extends HttpServlet {
      * @throws IOException if an I/O error occurs
      */
     @Override
-    protected void doPost(HttpServletRequest request, HttpServletResponse response)
+    protected void processPost(HttpServletRequest request, HttpServletResponse response)
     throws ServletException, IOException {
         processRequest(request, response);
     }
