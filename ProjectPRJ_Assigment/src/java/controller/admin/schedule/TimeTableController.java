@@ -78,6 +78,8 @@ public class TimeTableController extends BasedRequiredAuthentication {
         //Sunday
         Date sqlSun = week.get(6);
         
+        //forward to JSP file
+        request.getRequestDispatcher("../view/admin/timetable.jsp").forward(request, response);
         
     }
 
