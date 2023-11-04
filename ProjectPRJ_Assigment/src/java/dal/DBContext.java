@@ -7,6 +7,7 @@ package dal;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import model.IBaseModel;
@@ -33,4 +34,5 @@ public abstract class DBContext <T extends IBaseModel>{
         
     }
     public abstract T getUsers (T model);
+    public abstract ArrayList<T> list();
 }
