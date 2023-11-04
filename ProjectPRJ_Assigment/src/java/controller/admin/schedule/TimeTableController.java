@@ -5,6 +5,8 @@
 package controller.admin.schedule;
 
 import controller.authentication.BasedRequiredAuthentication;
+import dal.SessionDBContext;
+import dal.TimeSlotDBContext;
 import java.io.IOException;
 import java.io.PrintWriter;
 import jakarta.servlet.ServletException;
@@ -16,6 +18,8 @@ import java.time.DayOfWeek;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
+import model.Session;
+import model.TimeSlot;
 
 /**
  *
@@ -50,6 +54,12 @@ public class TimeTableController extends BasedRequiredAuthentication {
     @Override
     protected void processGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        int id = 1;
+        try {
+            id = Integer.parseInt(request.getParameter("id"));
+        } catch (NumberFormatException e) {
+            System.out.println(e);
+        }
         //set date 
         String date_raw = request.getParameter("date");
         LocalDate date;
@@ -60,7 +70,7 @@ public class TimeTableController extends BasedRequiredAuthentication {
             date = LocalDate.parse(date_raw, formatter);
         }
 
-        request.setAttribute("date", date);
+        request.setAttribute("date", date); 
         LocalDate monday = date;
         //check if variable name monday is not monday
         while (monday.getDayOfWeek() != DayOfWeek.MONDAY) {
@@ -76,8 +86,17 @@ public class TimeTableController extends BasedRequiredAuthentication {
         }
         request.setAttribute("week", week);
         //Sunday
-        Date sqlSun = week.get(6);
+        Date sqlSun = week.get(6);        
         
+               
+        TimeSlotDBContext timeDB = new TimeSlotDBContext();
+        ArrayList<TimeSlot> slots = timeDB.list();
+        
+        SessionDBContext sesDB = new SessionDBContext();
+        ArrayList<Session> sessions = sesDB.getSessions(id, sqlMon, sqlSun);
+        
+        request.setAttribute("slots", slots);
+        request.setAttribute("sessions", sessions);
         //forward to JSP file
         request.getRequestDispatcher("../view/admin/timetable.jsp").forward(request, response);
         
