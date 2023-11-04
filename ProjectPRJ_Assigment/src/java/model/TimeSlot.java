@@ -8,7 +8,7 @@ package model;
  *
  * @author THINKPAD
  */
-public class TimeSlot {
+public class TimeSlot implements IBaseModel{
     private int id;
     private String description;
 
