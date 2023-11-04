@@ -36,6 +36,22 @@
                         </td>
                     </c:forEach>    
                 </tr>
+                <c:forEach items="${requestScope.slots}" var="s" varStatus="loop">
+                    <tr>                        
+                        <td>${s.id}-${s.description}</td>
+                        <c:forEach items = "${requestScope.week}" var="d">
+                            <td>
+                                <c:forEach items="${requestScope.sessions}" var="k">
+                                    <c:if test="${k.date eq d and k.slot.id eq s.id}">
+                                        <a href="att?id=${k.id}">
+                                            ${k.group.name}-${k.group.subject.name}-${k.room.id}
+                                        </a>
+                                    </c:if>
+                                </c:forEach>
+                            </td>
+                        </c:forEach>
+                    </tr>
+                </c:forEach>
             </table>
         </div>
     </body>
