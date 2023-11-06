@@ -43,9 +43,9 @@
                             <td>
                                 <c:forEach items="${requestScope.sessions}" var="k">
                                     <c:if test="${k.date eq d and k.slot.id eq s.id}">
-                                        <a href="att?id=${k.id}">
+                                        
                                             ${k.group.name}-${k.group.subject.name}-${k.room.id}
-                                        </a>
+                                        
                                     </c:if>
                                 </c:forEach>
                             </td>
@@ -53,6 +53,6 @@
                     </tr>
                 </c:forEach>
             </table>
-        </div>
+        </div>        
     </body>
 </html>
