@@ -18,6 +18,7 @@ import java.sql.Array;
 import java.util.ArrayList;
 import model.Attendence;
 import model.Session;
+import model.Student;
 
 /**
  *
@@ -54,8 +55,22 @@ public class AttendenceTakingController extends BasedRequiredAuthentication {
 
     @Override
     protected void processPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-    
-    
+        Session ses = new Session();
+        ses.setId(Integer.parseInt(request.getParameter("sesid")));
+        String[] stuids = request.getParameterValues("stuid");
+        for(String stuid: stuids){
+            Attendence a = new Attendence();
+            a.setSession(ses);
+            Student s = new Student();
+            s.setId(Integer.parseInt(stuid));
+            a.setStudent(s);
+            a.setStatus(request.getParameter("status"+stuid).equals("present"));
+            a.setDescription(request.getParameter("description"+stuid));
+            ses.getAtts().add(a);
+        }
+        SessionDBContext sesDB = new SessionDBContext();
+        sesDB.addAttendences(ses);
+        response.getWriter().println("done");
     }
 
     
