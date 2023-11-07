@@ -49,7 +49,7 @@ public class AttendenceTakingController extends BasedRequiredAuthentication {
         ArrayList<Attendence> atts = attDb.getAttendenceBySession(id);
         
         request.setAttribute("atts", atts);
-        request.getRequestDispatcher("../view/instructor/att.jsp").forward(request, response);
+        request.getRequestDispatcher("../view/admin/att.jsp").forward(request, response);
     }
 
     @Override
