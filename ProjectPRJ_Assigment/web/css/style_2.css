@@ -7,7 +7,10 @@ Click nbfs://nbhost/SystemFileSystem/Templates/ClientSide/css.css to edit this t
     Author     : THINKPAD
 */
 
-
+html, body {
+    height: 100%; /* Đặt chiều cao của html và body là 100% */
+    margin: 0; /* Loại bỏ các margin mặc định */
+}
 
 header {
     border-radius: 10px; /* Bo góc với bán kính 10px */
@@ -55,23 +58,23 @@ header {
     color: #000;
     font-weight: bold;
     padding: 10px 20px;
-    border: 2px solid #aaa; 
+    border: 2px solid #aaa;
     border-radius: 20px; /* Bo tròn viền */
     margin: 0 5px; /* Tạo khoảng cách giữa các nút */
     transition: all 0.3s ease; /* Hiệu ứng chuyển đổi mượt mà */
-  }
-  
-  .btn-highlight {
+}
+
+.btn-highlight {
     background-color: #aaa; /* Màu nền cho nút Register */
     color: white; /* Màu chữ cho nút Register */
-  }
-  
-  /* :hover pseudo-class để tạo hiệu ứng khi rê chuột qua nút */
-  .login-btns:hover {
+}
+
+/* :hover pseudo-class để tạo hiệu ứng khi rê chuột qua nút */
+.login-btns:hover {
     background-color: #ccc; /* Màu nền khi hover */
     color: white; /* Màu chữ khi hover */
     border-color: #ccc; /* Màu viền khi hover */
-  }
+}
 
 
 .section-custom {
@@ -109,4 +112,52 @@ body {
     bottom: 0;
     z-index: -1;
     /* Đặt hình ảnh nền sau nội dung */
+}
+
+/*time table*/
+.main-container {
+    display: flex; /* Sử dụng Flexbox */
+    height: 100%; /* Đặt chiều cao cho container là 100% */
+}
+
+nav {
+    background-color:#47bdec;
+    /* Điều chỉnh chiều rộng dựa trên kích thước bạn mong muốn, ví dụ: width: 20%; */
+    width: 250px; /* Chiều rộng cố định cho nav */
+    /* Các thuộc tính khác như padding, margin, etc. */
+    border-right: 1px solid var(--border-color);
+}
+
+.dashboard {
+    flex-grow: 1; /* Cho phép nội dung chính mở rộng để chiếm phần còn lại của không gian */
+    /* Đặt các thuộc tính khác cho nội dung như padding, margin nếu cần */
+}
+
+nav a {
+    display: block; /* Để mỗi liên kết trên một dòng riêng */
+    padding: 10px;
+    font-size: 20px;
+    color: white;
+    text-decoration: none;
+}
+
+nav a:hover {
+    background-color: #333;
+}
+ul{
+    padding: 0;
+    list-style: none; /* Loại bỏ các dấu đầu dòng mặc định của ul */
+}
+
+li {
+    margin: 0; /* Loại bỏ các khoảng cách mặc định */
+}
+
+a {
+    display: block; /* Đặt thẻ a hiển thị dạng khối */
+    width: 100%; /* Mở rộng chiều ngang thẻ a */
+    background-color: #yourColor; /* Thay #yourColor bằng mã màu bạn muốn */
+    text-align: center; /* Nếu bạn muốn căn giữa nội dung */
+    padding: 10px 0; /* Thêm padding để tăng kích thước dọc của thẻ a */
+    box-sizing: border-box; /* Đảm bảo padding không làm thay đổi kích thước tổng cộng của thẻ a */
 }
