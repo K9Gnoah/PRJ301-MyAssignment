@@ -39,7 +39,8 @@ header {
 }
 
 .header-logo img {
-    height: 100%;
+    width: 150%;
+    height: 200%;
     user-select: none;
 }
 
@@ -51,6 +52,7 @@ header {
 .right-side{
     margin-top: 10px;
     margin-right: 50px;
+    display: flex;
 }
 
 .login-btns {
@@ -155,8 +157,7 @@ li {
 
 a {
     display: block; /* Đặt thẻ a hiển thị dạng khối */
-    width: 100%; /* Mở rộng chiều ngang thẻ a */
-    background-color: #yourColor; /* Thay #yourColor bằng mã màu bạn muốn */
+    width: 100%; /* Mở rộng chiều ngang thẻ a */    
     text-align: center; /* Nếu bạn muốn căn giữa nội dung */
     padding: 10px 0; /* Thêm padding để tăng kích thước dọc của thẻ a */
     box-sizing: border-box; /* Đảm bảo padding không làm thay đổi kích thước tổng cộng của thẻ a */

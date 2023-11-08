@@ -32,7 +32,7 @@
                     </ul>
                     <ul class ="logout-mode">
                         <li>
-                            <a href="logout">
+                            <a href="../logout">
                                 <span class="link-names">LOG OUT</span>
                             </a>
                         </li>
