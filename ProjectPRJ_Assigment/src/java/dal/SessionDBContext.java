@@ -28,7 +28,7 @@ public class SessionDBContext extends DBContext<Session> {
         ArrayList<Session> sessions = new ArrayList<>();
         try {
             String sql = "SELECT  \n"
-                    + "	ses.sesid,ses.[date],ses.[index],r.roomid,sub.subid,sub.subname,g.gid,g.gname,t.tid,t.[description]\n"
+                    + "	ses.sesid,ses.[date],ses.[index],ses.isAtt,r.roomid,sub.subid,sub.subname,g.gid,g.gname,t.tid,t.[description]\n"
                     + "FROM [Session] ses INNER JOIN [Group] g ON ses.gid = g.gid\n"
                     + "							INNER JOIN [Subject] sub ON g.subid = sub.subid\n"
                     + "							INNER JOIN Room r ON r.roomid = ses.rid\n"
@@ -44,6 +44,7 @@ public class SessionDBContext extends DBContext<Session> {
                 session.setId(rs.getInt("sesid"));
                 session.setDate(rs.getDate("date"));
                 session.setIndex(rs.getInt("index"));
+                session.setIsAtt(rs.getBoolean("isAtt"));
 
                 Room r = new Room();
                 r.setId(rs.getString("roomid"));
@@ -132,7 +133,7 @@ public class SessionDBContext extends DBContext<Session> {
 
             //Insert attendences 
             for (Attendence att : ses.getAtts()) {
-                String sql_insert_att = "INSERT INTO [Attendance]\n"
+                String sql_insert_att = "INSERT INTO [Attendence]\n"
                         + "           ([sesid]\n"
                         + "           ,[stuid]\n"
                         + "           ,[status]\n"
