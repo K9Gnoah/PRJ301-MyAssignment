@@ -125,7 +125,7 @@ body {
 nav {
     background-color:#47bdec;
     /* Điều chỉnh chiều rộng dựa trên kích thước bạn mong muốn, ví dụ: width: 20%; */
-    width: 250px; /* Chiều rộng cố định cho nav */
+    width: 20%; 
     /* Các thuộc tính khác như padding, margin, etc. */
     border-right: 1px solid var(--border-color);
 }
@@ -161,4 +161,32 @@ a {
     text-align: center; /* Nếu bạn muốn căn giữa nội dung */
     padding: 10px 0; /* Thêm padding để tăng kích thước dọc của thẻ a */
     box-sizing: border-box; /* Đảm bảo padding không làm thay đổi kích thước tổng cộng của thẻ a */
+}
+table {
+  font-family: Arial, sans-serif;
+}
+table thead{   
+  font-size: 18px; /* Làm to font chữ */
+  font-weight: bold; /* Làm đậm font chữ */
+}
+
+.dashboard {
+    flex-grow: 1;
+    padding: 10px; /* Thêm padding cho khoảng cách */    
+}
+
+.schedule-table {
+    margin-top: 50px;
+    height: 50%;
+    width: 100%; /* Bảng chiếm 100% chiều rộng của phần tử cha */
+    max-width: 100%; /* Giới hạn chiều rộng tối đa của bảng */
+    border-collapse: collapse; /* Xóa khoảng cách giữa các cell */
+}
+.schedule-header{
+    background: darkgoldenrod;    
+  font-family: 'Times New Roman', Times, serif;
+
+}
+td{
+    text-align: center;
 }

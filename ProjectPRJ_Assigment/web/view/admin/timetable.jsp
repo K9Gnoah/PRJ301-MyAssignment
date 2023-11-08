@@ -43,26 +43,28 @@
 
             </nav>
             <div class="dashboard">
-                <table border ="1px">
-                    <tr>
-                        <td>
-                            <form action="schedule" method="get">
-                                Date
-                                <input type="date" id="date" name="date" value="${requestScope.date}" onchange="submitForm()"><br/>
-                            </form>
-                        </td>
-                        <c:forEach items="${requestScope.week}" var="d">
+                <table border ="1px" class="schedule-table">
+                    <thead class="schedule-header">
+                        <tr>
                             <td>
-                                <%--format dạng thứ--%>
-                                <fmt:formatDate value="${d}" pattern="EEEE"/> <br>
-                                <fmt:formatDate value="${d}" pattern="dd-MM"/>
+                                <form action="schedule" method="get">
+                                    Date
+                                    <input type="date" id="date" name="date" value="${requestScope.date}" onchange="submitForm()"><br/>
+                                </form>
                             </td>
-                        </c:forEach>    
-                    </tr>
+                            <c:forEach items="${requestScope.week}" var="d">
+                                <td>
+                                    <%--format dạng thứ--%>
+                                    <fmt:formatDate value="${d}" pattern="EEEE"/> <br>
+                                    <fmt:formatDate value="${d}" pattern="dd-MM"/>
+                                </td>
+                            </c:forEach>    
+                        </tr>
+                    </thead>
                     <c:forEach items="${requestScope.slots}" var="s" varStatus="loop">
                         <tr>                        
-                            <td>${s.id}-${s.description}</td>
-                            <c:forEach items = "${requestScope.week}" var="d">
+                            <td>Slot: ${s.id}<br>(${s.description})</td>
+                                <c:forEach items = "${requestScope.week}" var="d">
                                 <td>
                                     <c:forEach items="${requestScope.sessions}" var="k">
                                         <c:if test="${k.date eq d and k.slot.id eq s.id}">
