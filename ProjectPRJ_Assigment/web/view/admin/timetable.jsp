@@ -29,6 +29,11 @@
                                 <span class="link-names">Schedule</span>
                             </a>
                         </li>
+                        <li>
+                            <a href="absentsum">
+                                <span class="link-names">Absent Sum</span>
+                            </a>
+                        </li>
                     </ul>
                     <ul class ="logout-mode">
                         <li>
