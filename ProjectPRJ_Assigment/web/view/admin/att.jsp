@@ -10,43 +10,71 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>JSP Page</title>
+        <title>Attendence Class</title>
+        <link rel="stylesheet" href="../css/style_2.css"/>
     </head>
     <body>
-        ${requestScope.ses.group.name}-${requestScope.ses.group.subject.name}-${requestScope.ses.room.id}
-        <form action="att" method = "POST">
-            <table border ="1px">
-                <tr>
-                    <td>Student</td>
-                    <td>Status</td>
-                    <td>Description</td>
-                    <td>Taking Time</td>
-                </tr>
-                <c:forEach items="${requestScope.atts}" var="a">
-                    <tr>
-                        <td>                            
-                            ${a.student.name}
-                            <input type="hidden" name="stuid" value="${a.student.id}"/>
-                        </td>     
-                        <td>
-                            <input type="radio"
-                                   <c:if test="${!a.status}">
-                                       checked="checked"
-                                   </c:if>
-                                   name="status${a.student.id}" value="absent" /> absent
-                            <input type="radio"
-                                   <c:if test="${a.status}">
-                                       checked="checked"
-                                   </c:if>
-                                   name="status${a.student.id}" value="present" /> present
-                        </td>
-                        <td><input type="text" value="${a.description}" name="description${a.student.id}"/></td>
-                        <td>${a.datetime}</td>
-                    </tr>
-                </c:forEach>
-            </table>
-            <input type="hidden" value="${requestScope.ses.id}" name="sesid"/>
-            <input type="submit" value="Save"/>
-        </form>
+        <div class="main-container">
+            <nav >
+                <div class="menu-items">
+                    <ul class = "nav-links">
+                        <li >
+                            <a href="schedule">
+                                <span class="link-names">Schedule</span>
+                            </a>
+                        </li>
+                    </ul>
+                    <ul class ="logout-mode">
+                        <li>
+                            <a href="../logout">
+                                <span class="link-names">LOG OUT</span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+            <div class="dashboard" >
+                ${requestScope.ses.group.name}-${requestScope.ses.group.subject.name}-${requestScope.ses.room.id}
+                <form action="att" method = "POST">
+                    <table border ="1px" class="att-table">
+                        <thead class="att-header">
+                            <tr>
+                                <td>Student</td>
+                                <td>Status</td>
+                                <td>Description</td>
+                                <td>Taking Time</td>
+                            </tr>
+                        </thead>
+                        <c:forEach items="${requestScope.atts}" var="a">
+                            <tr>
+                                <td>                            
+                                    ${a.student.name}
+                                    <input type="hidden" name="stuid" value="${a.student.id}"/>
+                                </td>     
+                                <td>
+                                    <input type="radio"
+                                           <c:if test="${!a.status}">
+                                               checked="checked"
+                                           </c:if>
+                                           name="status${a.student.id}" value="absent" /> absent
+                                    <input type="radio"
+                                           <c:if test="${a.status}">
+                                               checked="checked"
+                                           </c:if>
+                                           name="status${a.student.id}" value="present" /> present
+                                </td>
+                                <td><input type="text" value="${a.description}" name="description${a.student.id}"/></td>
+                                <td>${a.datetime}</td>
+                            </tr>
+                        </c:forEach>
+                    </table>
+                    <input type="hidden" value="${requestScope.ses.id}" name="sesid"/>
+                    <div class="finish-form">
+                        <input type="submit" value="Save"/>
+                        <input type="reset" value ="Reset"/>
+                    </div>
+                </form>
+            </div>
+        </div>
     </body>
 </html>

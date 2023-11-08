@@ -162,31 +162,126 @@ a {
     padding: 10px 0; /* Thêm padding để tăng kích thước dọc của thẻ a */
     box-sizing: border-box; /* Đảm bảo padding không làm thay đổi kích thước tổng cộng của thẻ a */
 }
-table {
-  font-family: Arial, sans-serif;
-}
-table thead{   
-  font-size: 18px; /* Làm to font chữ */
-  font-weight: bold; /* Làm đậm font chữ */
-}
-
-.dashboard {
-    flex-grow: 1;
-    padding: 10px; /* Thêm padding cho khoảng cách */    
-}
-
 .schedule-table {
-    margin-top: 50px;
-    height: 50%;
-    width: 100%; /* Bảng chiếm 100% chiều rộng của phần tử cha */
-    max-width: 100%; /* Giới hạn chiều rộng tối đa của bảng */
-    border-collapse: collapse; /* Xóa khoảng cách giữa các cell */
+  width: 100%; 
+  border-collapse: collapse; /* Collapse borders */
+  margin: 20px 0; /* Add some margin around the table */
+  font-size: 0.9em; /* Set the font size */
+  min-width: 400px; /* Minimum width */
+  border-radius: 5px 5px 0 0; /* Rounded corners at the top of the table */
+  overflow: hidden; /* Hide overflow to respect the border-radius */
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.15); /* Add a shadow for depth */
 }
-.schedule-header{
-    background: darkgoldenrod;    
-  font-family: 'Times New Roman', Times, serif;
 
+.schedule-header td {
+  background-color: #FFD700; /* Gold background for header */
+  color: #000; /* Black text color */
+  text-align: center; /* Center align text */
+  padding: 12px 15px; /* Add padding */
+  font-weight: bold; /* Make the font bold */
 }
+
+
+.schedule-table tr {
+  border-bottom: 1px solid #dddddd; /* Add a bottom border to each row */
+}
+
+.schedule-table td {
+  padding: 12px 15px; /* Add padding */
+}
+
+.schedule-table tr:nth-child(even) {
+  background-color: #f3f3f3; /* Light grey background */
+}
+
+.schedule-table tr:nth-child(odd) {
+  background-color: #ffffff; /* White background */
+}
+
+
+.schedule-table tr:hover {
+  background-color: #f1f1f1; /* Lighter grey background on hover */
+  cursor: pointer; /* Change cursor to indicate interactivity */
+}
+
+    
+
 td{
     text-align: center;
+}
+
+/* att.jsp */
+
+input[type=submit], input[type=reset] {
+  background-color: #4CAF50; /* Green background */
+  border: none;
+  color: white;
+  padding: 12px 24px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  transition-duration: 0.4s; /* Smooth transition for mouse-over effects */
+  cursor: pointer;
+}
+
+input[type=submit]:hover, input[type=reset]:hover {
+  background-color: #45a049; /* Darker shade of green */
+}
+
+input[type=submit] {
+  border-radius: 5px; /* Rounded corners for submit button */
+}
+
+input[type=reset] {
+  border-radius: 20px; /* Circular corners for reset button */
+}
+.finish-form{
+    display: flex; /* Sử dụng Flexbox */
+  justify-content: center; /* Căn chỉnh các phần tử con theo chiều ngang vào giữa */
+  align-items: center;
+}
+
+
+.att-table {
+  width: 100%; 
+  border-collapse: collapse; /* Collapse borders */
+  margin: 20px 0; /* Add some margin around the table */
+  font-size: 0.9em; /* Set the font size */
+  min-width: 400px; /* Minimum width */
+  border-radius: 5px 5px 0 0; /* Rounded corners at the top of the table */
+  overflow: hidden; /* Hide overflow to respect the border-radius */
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.15); /* Add a shadow for depth */
+}
+
+.att-header td {
+  background-color: #FFD700; /* Gold background for header */
+  color: #000; /* Black text color */
+  text-align: center; /* Center align text */
+  padding: 12px 15px; /* Add padding */
+  font-weight: bold; /* Make the font bold */
+}
+
+
+.att-table tr {
+  border-bottom: 1px solid #dddddd; /* Add a bottom border to each row */
+}
+
+.att-table td {
+  padding: 12px 15px; /* Add padding */
+}
+
+.att-table tr:nth-child(even) {
+  background-color: #f3f3f3; /* Light grey background */
+}
+
+.att-table tr:nth-child(odd) {
+  background-color: #ffffff; /* White background */
+}
+
+
+.att-table tr:hover {
+  background-color: #f1f1f1; /* Lighter grey background on hover */
+  cursor: pointer; /* Change cursor to indicate interactivity */
 }
