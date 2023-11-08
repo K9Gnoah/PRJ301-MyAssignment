@@ -24,7 +24,7 @@
                             </a>
                         </li>
                         <li>
-                            <a href="absentsum">
+                            <a href="absentsum?id=1">
                                 <span class="link-names">Absent Sum</span>
                             </a>
                         </li>

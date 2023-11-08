@@ -30,7 +30,7 @@
                             </a>
                         </li>
                         <li>
-                            <a href="absentsum">
+                            <a href="absentsum?id=1">
                                 <span class="link-names">Absent Sum</span>
                             </a>
                         </li>
@@ -51,7 +51,7 @@
             <div class="dashboard">   
                 <form action="schedule" method="GET">          
                                     Input id instructor<input type="text" name="id" value="${param.id}" >
-                                    Date <input type="date" name="date">                                    
+                                    Date <input type="date" name="date" value="${param.date}">                                    
                                     <input type="submit" value="view">   
                 </form>
                 <table border ="1px" class="schedule-table">
