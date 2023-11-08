@@ -54,52 +54,50 @@ public class TimeTableController extends BasedRequiredAuthentication {
     @Override
     protected void processGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        int id = 1;
         try {
-            id = Integer.parseInt(request.getParameter("id"));
+            int id = Integer.parseInt(request.getParameter("id"));
+
+            //set date 
+            String date_raw = request.getParameter("date");
+            LocalDate date;
+            if (date_raw == null) {
+                date = LocalDate.now();
+            } else {
+                DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+                date = LocalDate.parse(date_raw, formatter);
+            }
+
+            request.setAttribute("date", date);
+            LocalDate monday = date;
+            //check if variable name monday is not monday
+            while (monday.getDayOfWeek() != DayOfWeek.MONDAY) {
+                monday = monday.minusDays(1);
+            }
+            //Monday
+            Date sqlMon = Date.valueOf(monday);
+
+            //array list days of current week
+            ArrayList<Date> week = new ArrayList<>();
+            for (int i = 0; i < 7; i++) {
+                week.add(Date.valueOf(monday.plusDays(i)));
+            }
+            request.setAttribute("week", week);
+            //Sunday
+            Date sqlSun = week.get(6);
+
+            TimeSlotDBContext timeDB = new TimeSlotDBContext();
+            ArrayList<TimeSlot> slots = timeDB.list();
+
+            SessionDBContext sesDB = new SessionDBContext();
+            ArrayList<Session> sessions = sesDB.getSessions(id, sqlMon, sqlSun);
+
+            request.setAttribute("slots", slots);
+            request.setAttribute("sessions", sessions);
+            //forward to JSP file
+            request.getRequestDispatcher("../view/admin/timetable.jsp").forward(request, response);
         } catch (NumberFormatException e) {
             System.out.println(e);
         }
-        //set date 
-        String date_raw = request.getParameter("date");
-        LocalDate date;
-        if (date_raw == null) {
-            date = LocalDate.now();
-        } else {
-            DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
-            date = LocalDate.parse(date_raw, formatter);
-        }
-
-        request.setAttribute("date", date); 
-        LocalDate monday = date;
-        //check if variable name monday is not monday
-        while (monday.getDayOfWeek() != DayOfWeek.MONDAY) {
-            monday = monday.minusDays(1);
-        }
-        //Monday
-        Date sqlMon = Date.valueOf(monday);
-
-        //array list days of current week
-        ArrayList<Date> week = new ArrayList<>();
-        for (int i = 0; i < 7; i++) {
-            week.add(Date.valueOf(monday.plusDays(i)));
-        }
-        request.setAttribute("week", week);
-        //Sunday
-        Date sqlSun = week.get(6);        
-        
-               
-        TimeSlotDBContext timeDB = new TimeSlotDBContext();
-        ArrayList<TimeSlot> slots = timeDB.list();
-        
-        SessionDBContext sesDB = new SessionDBContext();
-        ArrayList<Session> sessions = sesDB.getSessions(id, sqlMon, sqlSun);
-        
-        request.setAttribute("slots", slots);
-        request.setAttribute("sessions", sessions);
-        //forward to JSP file
-        request.getRequestDispatcher("../view/admin/timetable.jsp").forward(request, response);
-        
     }
 
     /**

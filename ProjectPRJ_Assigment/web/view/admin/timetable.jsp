@@ -42,15 +42,18 @@
 
 
             </nav>
-            <div class="dashboard">
+            
+            <div class="dashboard">   
+                <form action="schedule" method="GET">          
+                                    Input id instructor<input type="text" name="id" value="${param.id}" >
+                                    Date <input type="date" name="date">                                    
+                                    <input type="submit" value="view">   
+                </form>
                 <table border ="1px" class="schedule-table">
                     <thead class="schedule-header">
                         <tr>
                             <td>
-                                <form action="schedule" method="get">
-                                    Date
-                                    <input type="date" id="date" name="date" value="${requestScope.date}" onchange="submitForm()"><br/>
-                                </form>
+                                
                             </td>
                             <c:forEach items="${requestScope.week}" var="d">
                                 <td>

@@ -76,7 +76,7 @@ public class LoginServlet extends HttpServlet {
             session.setAttribute("account", loggedUser);              
            
             
-            response.sendRedirect("admin/schedule");
+            response.sendRedirect("admin/schedule?id=1");
         } else {
             request.setAttribute("error", "Account do not exist");
             request.getRequestDispatcher("view/login.jsp").forward(request, response);
