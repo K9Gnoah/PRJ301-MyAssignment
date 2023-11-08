@@ -19,7 +19,7 @@
                 <div class="menu-items">
                     <ul class = "nav-links">
                         <li >
-                            <a href="schedule">
+                            <a href="schedule?id=1">
                                 <span class="link-names">Schedule</span>
                             </a>
                         </li>
