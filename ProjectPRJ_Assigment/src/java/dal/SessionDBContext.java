@@ -126,7 +126,7 @@ public class SessionDBContext extends DBContext<Session> {
             stm_update_isAtt.executeUpdate();
 
             //Remove existing attendences
-            String sql_remove_atts = "DELETE Attendance WHERE sesid = ?";
+            String sql_remove_atts = "DELETE Attendence WHERE sesid = ?";
             PreparedStatement stm_remove_atts = connection.prepareStatement(sql_remove_atts);
             stm_remove_atts.setInt(1, ses.getId());
             stm_remove_atts.executeUpdate();
