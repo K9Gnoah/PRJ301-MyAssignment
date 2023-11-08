@@ -1,0 +1,112 @@
+/*
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/ClientSide/css.css to edit this template
+*/
+/* 
+    Created on : Nov 8, 2023, 10:53:10 PM
+    Author     : THINKPAD
+*/
+
+
+
+header {
+    border-radius: 10px; /* Bo góc với bán kính 10px */
+    background-color: white;
+    /* Nền màu trắng */
+    width: 100%;
+    /* Chiều rộng phủ kín viewport */
+    z-index: 10;
+    /* Z-index cao hơn để header nổi lên trên */
+    position: relative;
+    /* Position relative để z-index có hiệu lực */
+    padding: 20px 0;
+    /* Thêm padding cho header */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    /* Tùy chọn: thêm bóng để tạo độ sâu */
+    display: flex;
+    justify-content: space-between;
+}
+
+.header-logo {
+    height: 40px;
+    object-fit: cover;
+    user-select: none;
+    display: block;
+    border: none;
+}
+
+.header-logo img {
+    height: 100%;
+    user-select: none;
+}
+
+.left-side {
+    margin-left: 50px;
+    display: flex;
+    align-items: center;
+}
+.right-side{
+    margin-top: 10px;
+    margin-right: 50px;
+}
+
+.login-btns {
+    text-decoration: none;
+    color: #000;
+    font-weight: bold;
+    padding: 10px 20px;
+    border: 2px solid #aaa; 
+    border-radius: 20px; /* Bo tròn viền */
+    margin: 0 5px; /* Tạo khoảng cách giữa các nút */
+    transition: all 0.3s ease; /* Hiệu ứng chuyển đổi mượt mà */
+  }
+  
+  .btn-highlight {
+    background-color: #aaa; /* Màu nền cho nút Register */
+    color: white; /* Màu chữ cho nút Register */
+  }
+  
+  /* :hover pseudo-class để tạo hiệu ứng khi rê chuột qua nút */
+  .login-btns:hover {
+    background-color: #ccc; /* Màu nền khi hover */
+    color: white; /* Màu chữ khi hover */
+    border-color: #ccc; /* Màu viền khi hover */
+  }
+
+
+.section-custom {
+
+    height: 100vh;
+    background-color: var(--vanilla);
+    display: flex !important;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    padding: 0 200px;
+    /* padding: 168px 220px 100px 220px; */
+}
+
+html,
+body {
+    height: 100%;
+    margin: 0;
+}
+
+.fullscreen-background {
+    background-image: url('../image/FU.jpg');
+    /* Đường dẫn đến hình ảnh của bạn */
+    background-size: cover;
+    /* Đảm bảo hình ảnh phủ kín toàn bộ phần tử */
+    background-position: center;
+    /* Căn giữa hình ảnh trong phần tử */
+    background-repeat: no-repeat;
+    /* Không lặp lại hình ảnh */
+    position: fixed;
+    /* Đặt hình nền cố định so với viewport */
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: -1;
+    /* Đặt hình ảnh nền sau nội dung */
+}
