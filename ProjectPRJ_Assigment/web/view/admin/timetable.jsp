@@ -20,16 +20,31 @@
         }
     </script>
     <body>
-        <div>
-            <table border ="1px">
-                <tr>
-                    <td>
-                        <form action="schedule" method="get">
-                            Date
-                            <input type="date" id="date" name="date" value="${requestScope.date}" onchange="submitForm()"><br/>
-                        </form>
-                    </td>
-                    <c:forEach items="${requestScope.week}" var="d">
+        <div class="main-container">
+            <nav >
+                <div class="menu-items">
+                    <ul class = "nav-links">
+                        <li >
+                            <a href="schedule">
+                                <span class="link-names">Schedule</span>
+                            </a>
+                        </li>
+                    </ul>
+                    <ul class ="logout-mode">
+                        <li>
+                            <a href="logout">
+                                <span class="link-names">LOG OUT</span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+
+
+
+            </nav>
+            <div class="dashboard">
+                <table border ="1px">
+                    <tr>
                         <td>
                             <form action="schedule" method="get">
                                 Date
