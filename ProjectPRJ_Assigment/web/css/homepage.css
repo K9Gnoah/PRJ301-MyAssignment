@@ -66,6 +66,15 @@ button.right{
     background-color: transparent;
     border-color: #FFFFFF;
 }
+button:hover {
+    border: 1px solid #ff9800;
+    background-color: #ffa013c7;
+    transform: scale(0.95);
+}
+
+button:active {
+    transform: scale(0.95);
+}
 input {
     background-color: #eee;
     border: none;
