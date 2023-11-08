@@ -22,6 +22,7 @@
                         <h1>Sign in</h1>                                
                         <input type="text" name="username" placeholder="Email" required=""/><br />
                         <input type="password" name="password" placeholder="Password" required=""/><br />                    
+                        <p style="color: red">${requestScope.error}</p>
                         <button>Sign In</button>
                     </form>
                 </div>
