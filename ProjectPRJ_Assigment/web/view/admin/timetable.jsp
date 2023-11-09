@@ -93,6 +93,7 @@
                         </tr>
                     </c:forEach>
                 </table>
+                                    <p style="color: red">${requestScope.error}</p>
             </div>  
         </div>
     </body>

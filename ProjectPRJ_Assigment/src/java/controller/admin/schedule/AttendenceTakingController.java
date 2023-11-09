@@ -71,6 +71,8 @@ public class AttendenceTakingController extends BasedRequiredAuthentication {
         SessionDBContext sesDB = new SessionDBContext();
         sesDB.addAttendences(ses);
         response.getWriter().println("done");
+        request.setAttribute("error", "Update attendence succesfully");
+        request.getRequestDispatcher("../view/admin/timetable.jsp").forward(request, response);
     }
 
     

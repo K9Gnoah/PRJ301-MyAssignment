@@ -285,3 +285,14 @@ input[type=reset] {
   background-color: #f1f1f1; /* Lighter grey background on hover */
   cursor: pointer; /* Change cursor to indicate interactivity */
 }
+
+.grnameroom {
+    background-color: #f0f0f0; /* Set your desired background color */
+    padding: 10px; /* Add some padding for spacing */
+    border-radius: 5px; /* Optional: Add rounded corners for a nicer look */
+}
+.agrnameroom{
+    text-decoration: none; /* Remove underline from the link */
+    color: #333; /* Set the text color */
+    font-weight: bold; /* Make the text bold */
+}
